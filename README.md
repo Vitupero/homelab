@@ -77,3 +77,10 @@ ssh_authorized_keys:
 ## Mount NFS Share on RancherOS
 
 `sudo ros config set mounts '[["10.10.13.5:/mnt/array/exports/rancher", "/mnt/rancher", "nfs4",""]]'`
+
+## Add Portainer with NFS share
+
+1. `sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --restart always --name portainer.phew.blue -v /mnt/rancher/portainer:/data portainer/portainer`
+2. Open [Portainer](http://10.10.13.2:9000) and follow the wizard by selecting local docker and setting an admin account
+
+
