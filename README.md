@@ -63,3 +63,13 @@ ssh_authorized_keys:
 12. Install the `cloud-config.yml` - `sudo ros install -c cloud-config.yml -d /dev/sda`
 13. Remove CD Image from VM, and then reboot
 14. SSH back in to the Rancher Host
+
+## Create NFS Shares on FreeNAS 10.10.13.5
+
+1. Create a UNIX dataset called `/mnt/array/exports/rancher` with root and wheel as the user, set a quota for 50gb
+2. Create a NFS share to the dataset you created, select `all dirs`, click on `Advanced Mode`, Mapall User `root` and Mapall Group `wheel`
+3. Enable nfs sharing and click edit and select the following
+  - Allow non-root mount
+  - Enable NFSv4
+  - NFSv3 ownership model for NFSv4
+4. Reboot FreeNAS
