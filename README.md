@@ -73,3 +73,7 @@ ssh_authorized_keys:
   - Enable NFSv4
   - NFSv3 ownership model for NFSv4
 4. Reboot FreeNAS
+
+## Mount NFS Share on RancherOS
+
+`sudo ros config set mounts '[["10.10.13.5:/mnt/array/exports/rancher", "/mnt/rancher", "nfs4",""]]'`
